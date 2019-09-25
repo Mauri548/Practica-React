@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Navegacion from './Components/navegacion'
+import FormularioTarea from './Components/Formulario_Tareas'
 import { tareas } from './Tareas.json'
 
 class App extends React.Component{
@@ -36,9 +37,17 @@ class App extends React.Component{
   return(
     <div className="App">
       <Navegacion titulo="Tarea" T={this.state.tareas.length}/>
-      <div className="container">
+
+      <div className="conteiner">
         <div className="row">
-          {tareas}
+          <div className="col-4">
+            <FormularioTarea/>
+          </div>
+          <div className="col-8">
+            <div className="row">
+              {tareas}
+            </div>
+          </div>
         </div>
       </div>
       <img src={logo} className="App-logo" alt="logo" />
@@ -48,3 +57,4 @@ class App extends React.Component{
 }
 
 export default App;
+
