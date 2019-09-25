@@ -1,26 +1,50 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Navegacion from './Components/navegacion'
+import { tareas } from './Tareas.json'
 
-function App() {
-  return (
+class App extends React.Component{
+
+  constructor(){
+    super();
+    this.state = {
+      tareas
+    }
+  }
+
+  render(){
+    const tareas = this.state.tareas.map((tarea, i) =>{
+      return(
+        <div className="col-md-4">
+          <div className="card mt-4">          
+            <div className="card-header">
+              <h3>{tarea.titulo}</h3>
+              <span className="badge badge-pill badge-danger ml-2">
+              {tarea.prioridad}
+              </span>
+            </div>
+            <div className="card-body">
+              <p>{tarea.descripcion}</p>
+              <p><b>- {tarea.responsable} -</b></p>
+            </div>
+          </div>
+        </div>
+      );
+    })
+
+  return(
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navegacion titulo="Tarea" T={this.state.tareas.length}/>
+      <div className="container">
+        <div className="row">
+          {tareas}
+        </div>
+      </div>
+      <img src={logo} className="App-logo" alt="logo" />
     </div>
   );
+  }
 }
 
 export default App;

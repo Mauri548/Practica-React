@@ -1,0 +1,29 @@
+
+{
+    "tareas": [
+        {
+            "titulo": "Tarea 1",
+            "responsable": "Mark",
+            "descripcion": "lorem input",
+            "prioridad": "baja"
+        },
+        {
+            "titulo": "Tarea 2",
+            "responsable": "Jhon",
+            "descripcion": "lorem input 2",
+            "prioridad": "media"
+        },
+        {
+            "titulo": "Tarea 3",
+            "responsable": "Dimitri",
+            "descripcion": "lorem input 3",
+            "prioridad": "alta"
+        },
+        {
+            "titulo": "Tarea 4",
+            "responsable": "Darius",
+            "descripcion": "lorem input 4",
+            "prioridad": "media"
+        }
+    ]
+}
