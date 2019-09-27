@@ -12,10 +12,26 @@ class App extends React.Component{
     this.state = {
       tareas
     }
+    this.handleAddTarea = this.handleAddTarea.bind(this);
+  }
+
+  handleAddTarea(tarea){
+    this.setState ({
+      tareas: [...this.state.tareas, tarea]
+    })
+  }
+
+  removerTarea(indice){
+    console.log(indice)
+    this.setState ({
+      tareas: this.state.tareas.filter((e, i) => {
+        return i !== indice
+      })
+    })
   }
 
   render(){
-    const tareas = this.state.tareas.map((tarea, i) =>{
+    const tareas = this.state.tareas.map((tarea, i) =>{ //el evento map recorre 1 a 1 las tareas
       return(
         <div className="col-md-4">
           <div className="card mt-4">          
@@ -29,6 +45,9 @@ class App extends React.Component{
               <p>{tarea.descripcion}</p>
               <p><b>- {tarea.responsable} -</b></p>
             </div>
+            <div className="card-footer">
+              <button className="btn btn-danger" onClick={this.removerTarea.bind(this, i)}>Eliminar</button>
+            </div>
           </div>
         </div>
       );
@@ -41,7 +60,8 @@ class App extends React.Component{
       <div className="conteiner">
         <div className="row">
           <div className="col-4">
-            <FormularioTarea/>
+            <img src={logo} className="App-logo" alt="logo" />
+            <FormularioTarea onAddTarea={this.handleAddTarea}/>
           </div>
           <div className="col-8">
             <div className="row">

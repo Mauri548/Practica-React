@@ -11,6 +11,7 @@ class FormularioTarea extends React.Component{
             prioridad: 'bajo'
         };
         this.handleInput = this.handleInput.bind(this); // llama a la funcion handleInput y lo vincula con el estado
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleInput(e){
@@ -20,13 +21,15 @@ class FormularioTarea extends React.Component{
         })
     }
 
-    handleSubmit(){
-        alert('enviando')
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.onAddTarea(this.state);
+        console.log('enviando los datos..');
     }
 
     render(){
         return(
-            <div className="card">
+            <div className="card form">
                 <form className="card-body" onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <input type="text" 
@@ -36,7 +39,7 @@ class FormularioTarea extends React.Component{
                             placeholder="titulo"
                         />
                     </div>
-                    <div>
+                    <div className="form-group">
                         <input type="text" 
                             name="responsable" 
                             onChange={this.handleInput}
@@ -44,7 +47,7 @@ class FormularioTarea extends React.Component{
                             placeholder="responsable"
                         />
                     </div>
-                    <div>
+                    <div className="form-group">
                         <input type="text" 
                             name="descripcion" 
                             className="form-control"

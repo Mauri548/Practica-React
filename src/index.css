@@ -14,3 +14,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.form {
+  margin-top:10px;
+  margin-left: 60px;
+  margin-right: 60px;
+}
