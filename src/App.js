@@ -22,12 +22,13 @@ class App extends React.Component{
   }
 
   removerTarea(indice){
-    console.log(indice)
-    this.setState ({
-      tareas: this.state.tareas.filter((e, i) => {
-        return i !== indice
+    if (window.confirm('estas seguro de querer elimirarlo?')){
+      this.setState ({
+        tareas: this.state.tareas.filter((e, i) => {
+          return i !== indice
+        })
       })
-    })
+    }
   }
 
   render(){
